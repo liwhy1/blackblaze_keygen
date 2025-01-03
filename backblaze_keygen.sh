@@ -1,5 +1,5 @@
-
 #!/bin/bash
+
 set -euo pipefail
 if [ "${DCDEVSPACE:-0}" == "1" ]; then
     # Create a temporary directory for certificates
@@ -31,7 +31,7 @@ if [ "${DCDEVSPACE:-0}" == "1" ]; then
     # Modify the make_key tool to use 4096-bit keys instead of 2048-bit keys
     sed -i 's|2048|4096|g' "$CERT_DIR/make_key"
     # List of certificate names
-    CERT_NAMES=("bluetooth" "cyngn-app" "media" "networkstack" "platform" "releasekey" "sdk_sandbox" "shared" "testcert" "testkey" "verity")
+    CERT_NAMES=("bluetooth" "cyngn-app" "media" "networkstack" "nfc" "platform" "releasekey" "sdk_sandbox" "shared" "testcert" "testkey" "verity")
     # Loop through each certificate name and generate the keys
     for CERT_NAME in "${CERT_NAMES[@]}"; do 
         echo "Generating key for $CERT_NAME" 
